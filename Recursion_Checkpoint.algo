@@ -1,0 +1,34 @@
+FUNCTION palindrome(VAR word : ARRAY_OF STRING[n]) : INTEGER
+VAR
+    i , result : INTEGER := 0 ;
+    n := STRING ;
+BEGIN
+    IF (n = 0 OR n = 1) THEN
+        RETURN result = 0 ;
+    END_IF
+    // check the first letter with the last letter till loop reach the middle index
+    FOR i FROM 0 TO (n-1)/2 DO
+        IF (word[i] = word[n-1-i]) THEN
+            i += 1;  // to make the for loop increment, as if i didn't will stuck on i = 0 each time call the fuction.
+            result = result + palindrome(word[n]) ;
+            RETURN result ;
+        ELSE
+            RETURN result = 1 ;
+        END_IF
+    END_FOR
+    
+END
+
+ALGORITHM Is_palindrome
+BEGIN
+    Read(word[n])
+
+    // call the function
+    palindrome(word[n]) ;
+    IF (result = 0) THEN
+        Write("This Is Palindrome");
+    ELSE
+        Write("This Is NOT Palindrome");
+    END_IF
+END
+
